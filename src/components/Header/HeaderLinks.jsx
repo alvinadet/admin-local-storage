@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -92,12 +92,7 @@ class HeaderLinks extends React.Component {
             open={open}
             anchorEl={this.anchorEl}
             transition
-            disablePortal
-            className={
-              classNames({ [classes.popperClose]: !open }) +
-              ' ' +
-              classes.pooperNav
-            }>
+            disablePortal>
             {({ TransitionProps, placement }) => (
               <Grow
                 {...TransitionProps}
