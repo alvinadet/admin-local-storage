@@ -70,28 +70,31 @@ class TabelBarang extends Component {
                   'Jumlah Harga',
                   'Hapus/Edit'
                 ]}
-                tableData={this.props.database.map((datum, key) => {
-                  return [
-                    datum.nama,
-                    datum.harga,
-                    datum.stock,
-                    `Rp. ${datum.jumlahHarga}`,
-                    <div>
-                      <Button
-                        color="white"
-                        onClick={() => this.props.hapusData(key)}
-                        style={{ backgroundColor: 'red', margin: 4 }}>
-                        Hapus
-                      </Button>
-                      <Button
-                        color="white"
-                        onClick={() => this.props.editData(key)}
-                        style={{ backgroundColor: 'green', margin: 4 }}>
-                        Edit
-                      </Button>
-                    </div>
-                  ];
-                })}
+                tableData={this.props.database
+                  .slice(0)
+                  .reverse()
+                  .map((datum, key) => {
+                    return [
+                      datum.nama,
+                      datum.harga,
+                      datum.stock,
+                      `Rp. ${datum.jumlahHarga}`,
+                      <div>
+                        <Button
+                          color="white"
+                          onClick={() => this.props.hapusData(key)}
+                          style={{ backgroundColor: 'red', margin: 4 }}>
+                          Hapus
+                        </Button>
+                        <Button
+                          color="white"
+                          onClick={() => this.props.editData(key)}
+                          style={{ backgroundColor: 'green', margin: 4 }}>
+                          Edit
+                        </Button>
+                      </div>
+                    ];
+                  })}
               />
             </CardBody>
           </Card>
